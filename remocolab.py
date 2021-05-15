@@ -238,7 +238,7 @@ def _setupSSHDMain(public_key, tunnel, ngrok_region, check_gpu_available, mount_
   if tunnel == None:
     print("As ngrok doesn't work on colab for long time, default tunnel method has been changed to Argo tunnel.")
     print("Please read this for more details:")
-    print("https://github.com/demotomohiro/remocolab/blob/master/README.md")
+    print("https://github.com/0m3rta13/remocolab/blob/master/README.md")
     tunnel = "argotunnel"
 
   avail_tunnels = {"ngrok", "argotunnel"}
@@ -266,7 +266,7 @@ def _setupSSHDMain(public_key, tunnel, ngrok_region, check_gpu_available, mount_
     print("It seems Google is blocking ngrok.")
     print("If you got error 'kex_exchange_identification: Connection closed by remote host' when you login to ssh, you need to use Argo Tunnel instead of ngrok.")
     print("Please read this for more details:")
-    print("https://github.com/demotomohiro/remocolab/blob/master/README.md")
+    print("https://github.com/0m3rta13/remocolab/blob/master/README.md")
     print("---")
     print("Copy&paste your tunnel authtoken from https://dashboard.ngrok.com/auth")
     print("(You need to sign up for ngrok and login,)")
