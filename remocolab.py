@@ -161,7 +161,7 @@ def _setupSSHDImpl(public_key, tunnel, ngrok_token, ngrok_region, mount_gdrive_t
 
   root_password = secrets.token_urlsafe()
   user_password = secrets.token_urlsafe()
-  user_name = "colab"
+  user_name = "root"
   msg += "✂️"*24 + "\n"
   msg += f"root password: {root_password}\n"
   msg += f"{user_name} password: {user_password}\n"
@@ -336,7 +336,7 @@ def _setup_nvidia_gl():
 
   #!service lightdm stop
   subprocess.run(["/opt/VirtualGL/bin/vglserver_config", "-config", "+s", "+f"], check = True)
-  #user_name = "colab"
+  #user_name = "root"
   #!usermod -a -G vglusers $user_name
   #!service lightdm start
 
@@ -382,7 +382,6 @@ no-x11-tcp-connections
   vncrun_py = tempfile.gettempdir() / pathlib.Path("vncrun.py")
   vncrun_py.write_text("""\
 import subprocess, secrets, pathlib
-
 vnc_passwd = secrets.token_urlsafe()[:8]
 vnc_viewonly_passwd = secrets.token_urlsafe()[:8]
 print("✂️"*24)
@@ -404,7 +403,6 @@ subprocess.run(
   ["/opt/TurboVNC/bin/vncserver"],
   cwd = pathlib.Path.home()
 )
-
 #Disable screensaver because no one would want it.
 (pathlib.Path.home() / ".xscreensaver").write_text("mode: off\\n")
 """)
